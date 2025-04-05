@@ -1,0 +1,43 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>Hot Trading</title>
+    <style>
+        body { font-family: Arial, sans-serif; background: #111; color: #fff; padding: 20px; }
+        h1 { color: #00ff99; }
+        .signal { background: #222; border-left: 5px solid #00ff99; padding: 10px; margin: 10px 0; }
+        .up { border-color: #00ff99; }
+        .down { border-color: #ff4444; }
+        .countdown { font-size: 24px; margin-top: 20px; }
+    </style>
+</head>
+<body>
+    <h1>Hot Trading - USD/BRL OTC</h1>
+    <div id="signals">
+        <div class="signal up">
+            <strong>إشارة صعود</strong> - 2025-04-05 13:15 GMT+3
+        </div>
+        <div class="signal down">
+            <strong>إشارة هبوط</strong> - 2025-04-05 13:25 GMT+3
+        </div>
+    </div>
+    <div class="countdown">
+        الصفقة القادمة خلال: <span id="timer">60</span> ثانية
+    </div>
+
+    <script>
+        let seconds = 60;
+        const timerEl = document.getElementById("timer");
+        setInterval(() => {
+            seconds--;
+            if (seconds <= 0) {
+                seconds = 60;
+            }
+            timerEl.textContent = seconds;
+        }, 1000);
+    </script>
+</body>
+</html>
